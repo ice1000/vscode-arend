@@ -11,6 +11,9 @@
     ],
     "license": "Apache-2.0",
     "publisher": "ice1000",
+    "repository": {
+        "url": "https://github.com/ice1000/vscode-arend"
+    },
     "author": {
         "name": "Tesla Ice Zhang",
         "email": "ice1000kotlin@foxmail.com",
