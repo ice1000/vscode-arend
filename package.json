@@ -1,0 +1,60 @@
+{
+    "name": "arend",
+    "displayName": "Arend",
+    "description": "Arend language support for VSCode",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "license": "Apache-2.0",
+    "publisher": "ice1000",
+    "author": {
+        "name": "Tesla Ice Zhang",
+        "email": "ice1000kotlin@foxmail.com",
+        "url": "https://ice1000.org"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "arend",
+                "aliases": [
+                    "Arend",
+                    "arend"
+                ],
+                "extensions": [
+                    ".ard"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "arend",
+                "scopeName": "source.ard",
+                "path": "./syntaxes/Arend.tmLanguage"
+            }
+        ]
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^11.1.0",
+        "@rollup/plugin-node-resolve": "^7.1.3",
+        "@types/node": "^12.12.39",
+        "@types/node-fetch": "^2.5.7",
+        "@types/vscode": "^1.45.0",
+        "@typescript-eslint/eslint-plugin": "^2.33.0",
+        "@typescript-eslint/parser": "^2.33.0",
+        "eslint": "^6.8.0",
+        "rollup": "^2.10.0",
+        "tslib": "^1.12.0",
+        "typescript": "^3.9.2",
+        "typescript-formatter": "^7.2.2",
+        "vsce": "^1.75.0"
+    },
+    "dependencies": {
+        "node-fetch": "^2.6.0",
+        "vscode-languageclient": "7.0.0-next.1"
+    }
+}
