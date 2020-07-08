@@ -42,6 +42,16 @@
                 "language": "arend",
                 "scopeName": "source.ard",
                 "path": "./syntaxes/Arend.tmLanguage"
+            },
+            {
+                "scopeName": "markdown.arend.codeblock",
+                "path": "./syntaxes/codeblock.json",
+                "injectTo": [
+                    "text.html.markdown"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.block.arend": "arend"
+                }
             }
         ],
         "configuration": {
