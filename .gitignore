@@ -5,6 +5,7 @@
 .vs
 package-lock.json
 *.vsix
+out/*
 
 # Logs
 logs
