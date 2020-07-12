@@ -2,7 +2,7 @@
     "name": "arend",
     "displayName": "Arend",
     "description": "Arend language support for VSCode",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.45.0"
     },
@@ -61,6 +61,10 @@
                     "type": "boolean",
                     "default": true,
                     "description": "[Recommended] Specifies whether the language server should be used. When enabled the extension will provide code completions and linting, otherwise just syntax highlighting. Might require a reload to apply."
+                },
+                "arend.languageServer.path": {
+                    "type": "string",
+                    "description": "[Recommended] Specifies the local path of the arend language server jar, required for smart editing features."
                 }
             },
             "arend.languageServer.path": {

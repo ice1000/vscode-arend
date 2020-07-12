@@ -1,5 +1,8 @@
 'use strict'
 import * as vscode from 'vscode';
+import { withSpinningStatus } from './status-utils';
+import { activateArend } from './startup';
+import { fsExists } from './os-utils';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
   const arendConfig = vscode.workspace.getConfiguration("arend");
@@ -17,8 +20,19 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     // TODO: provide a link to download?
     return;
   }
+  if (!await fsExists(arendLspPath)) {
+    const message = "Specified path in arend.languageServer.path is invalid, smart editing features won't be available.";
+    await vscode.window.showWarningMessage(message);
+    return;
+  }
 
-  // TODO
+  const initTasks: Promise<void>[] = [];
+
+  initTasks.push(withSpinningStatus(context, async status => {
+    activateArend(context, status, arendConfig);
+  }));
+
+  await Promise.all(initTasks);
 }
 
 export function deactivate() {
