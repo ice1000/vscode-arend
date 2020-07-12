@@ -65,8 +65,13 @@
                 "arend.languageServer.transport": {
                     "type": "string",
                     "default": "stdio",
-                    "oneOf": ["stdio", "tcp"],
+                    "enum": ["stdio", "tcp"],
                     "description": "The type of protocol used for communication with the arend language server."
+                },
+                "arend.languageServer.port": {
+                    "type": "number",
+                    "default": 0,
+                    "description": "The port number (used when connecting the language server via TCP)."
                 },
                 "arend.languageServer.path": {
                     "type": "string",
