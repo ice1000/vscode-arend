@@ -1,5 +1,4 @@
 import * as child_process from "child_process";
-import * as fs from "fs";
 import * as net from "net";
 import * as vscode from 'vscode';
 import { Status } from "./status-utils";
@@ -38,16 +37,17 @@ export async function activateArend(context: vscode.ExtensionContext, status: St
     initStatusSuffix = "via stdio";
   }
 
-  status.update(`Initializing Kotlin Language Server ${initStatusSuffix}...`);
+  status.update(`Initializing Arend Language Server ${initStatusSuffix}...`);
 
   const arendLspPath = arendConfig.get<string>("languageServer.path");
+  outputChannel.appendLine(`Selected Arend Language Server: ${arendLspPath}`);
   const languageClient = createLanguageClient({
     outputChannel, java, arendLspPath, tcpPort
   });
   let languageClientDisposable = languageClient.start();
   context.subscriptions.push(languageClientDisposable);
 
-  context.subscriptions.push(vscode.commands.registerCommand("kotlin.languageServer.restart", async () => {
+  context.subscriptions.push(vscode.commands.registerCommand("arend.languageServer.restart", async () => {
     await languageClient.stop();
     languageClientDisposable.dispose();
 
@@ -96,7 +96,7 @@ function createLanguageClient(options: {
   } else {
     serverOptions = {
       command: options.java,
-      args: [],
+      args: ["-jar", options.arendLspPath],
       options: {
         cwd: vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath,
       }

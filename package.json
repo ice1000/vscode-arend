@@ -62,6 +62,12 @@
                     "default": true,
                     "description": "[Recommended] Specifies whether the language server should be used. When enabled the extension will provide code completions and linting, otherwise just syntax highlighting. Might require a reload to apply."
                 },
+                "arend.languageServer.transport": {
+                    "type": "string",
+                    "default": "stdio",
+                    "oneOf": ["stdio", "tcp"],
+                    "description": "The type of protocol used for communication with the arend language server."
+                },
                 "arend.languageServer.path": {
                     "type": "string",
                     "description": "[Recommended] Specifies the local path of the arend language server jar, required for smart editing features."
