@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 
 export async function withSpinningStatus(context: vscode.ExtensionContext, action: (status: Status) => Promise<void>): Promise<void> {
-  const status = new StatusBarEntry(context, "$(sync~spin)");
+  const status = new StatusBarEntry(context, "Arend");
   status.show();
   await action(status);
   status.dispose();

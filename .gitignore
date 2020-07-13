@@ -1,5 +1,6 @@
 # Custom ignore for ice1000
 
+.vscode
 .idea
 .vs
 package-lock.json

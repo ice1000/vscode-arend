@@ -37,7 +37,7 @@ export async function activateArend(context: vscode.ExtensionContext, status: St
     initStatusSuffix = "via stdio";
   }
 
-  status.update(`Initializing Arend Language Server ${initStatusSuffix}...`);
+  status.update(`Initializing Arend language server ${initStatusSuffix}...`);
 
   const arendLspPath = arendConfig.get<string>("languageServer.path");
   outputChannel.appendLine(`Selected Arend Language Server: ${arendLspPath}`);
@@ -59,7 +59,7 @@ export async function activateArend(context: vscode.ExtensionContext, status: St
     context.subscriptions.push(languageClientDisposable);
   }));
 
-  return languageClient.onReady();
+  await languageClient.onReady();
 }
 
 function createLanguageClient(options: {
@@ -103,7 +103,7 @@ function createLanguageClient(options: {
     }
   }
 
-  return new LanguageClient("arend", "Arend Language Client", serverOptions, clientOptions);
+  return new LanguageClient("arend", "Arend language client", serverOptions, clientOptions);
 }
 
 export function spawnLanguageServerProcessAndConnectViaTcp(options: {
