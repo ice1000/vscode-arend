@@ -14,9 +14,11 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
   const arendLspPath = arendConfig.get<string>("languageServer.path");
   if (!arendLspPath) {
-    const message = "To enable smart editing features for Arend, you need to specify arend.languageServer.path in your settings.";
+    const link = "https://github.com/ice1000/arend-language-server/releases/download/v0.1.0/arend-lsp-0.1.0-full.jar";
+    const message =
+      `To enable smart editing features for Arend, you need to specify arend.languageServer.path in your settings.
+You can download it from: ${link}`;
     await vscode.window.showWarningMessage(message);
-    // TODO: provide a link to download?
     return;
   }
   if (!await fsExists(arendLspPath)) {

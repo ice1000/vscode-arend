@@ -65,7 +65,10 @@
                 "arend.languageServer.transport": {
                     "type": "string",
                     "default": "stdio",
-                    "enum": ["stdio", "tcp"],
+                    "enum": [
+                        "stdio",
+                        "tcp"
+                    ],
                     "description": "The type of protocol used for communication with the arend language server."
                 },
                 "arend.languageServer.port": {
@@ -83,7 +86,14 @@
                 "default": "",
                 "description": "Optionally a custom path to the language server executable."
             }
-        }
+        },
+        "commands": [
+            {
+                "command": "arend.languageServer.restart",
+                "category": "Arend",
+                "title": "Restart Arend"
+            }
+        ]
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^11.1.0",
