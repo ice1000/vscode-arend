@@ -1,12 +1,11 @@
 import * as child_process from "child_process";
 import * as net from "net";
 import * as vscode from 'vscode';
-import { Status } from "./status-utils";
 import { findJavaExecutable } from './find-java';
 import { LanguageClient, LanguageClientOptions, RevealOutputChannelOn, ServerOptions, StreamInfo } from "vscode-languageclient";
 
-export async function activateArend(context: vscode.ExtensionContext, status: Status, arendConfig: vscode.WorkspaceConfiguration) {
-  status.update("Activating Arend...");
+export async function activateArend(context: vscode.ExtensionContext, progress: vscode.Progress<{ message?: string; increment?: number }>, arendConfig: vscode.WorkspaceConfiguration) {
+  progress.report({ message: "Activating Arend...", increment: 500 });
   const java = await findJavaExecutable("java");
   if (!java) {
     await vscode.window.showErrorMessage("Couldn't locate java in $JAVA_HOME or $PATH, please install java.");
@@ -37,7 +36,7 @@ export async function activateArend(context: vscode.ExtensionContext, status: St
     initStatusSuffix = "via stdio";
   }
 
-  status.update(`Initializing Arend language server ${initStatusSuffix}...`);
+  progress.report({ message: `Initializing Arend language server ${initStatusSuffix}...`, increment: 1000 });
 
   const arendLspPath = arendConfig.get<string>("languageServer.path");
   outputChannel.appendLine(`Selected Arend Language Server: ${arendLspPath}`);
@@ -59,6 +58,7 @@ export async function activateArend(context: vscode.ExtensionContext, status: St
     context.subscriptions.push(languageClientDisposable);
   }));
 
+  progress.report({ message: "Waiting for typechecking...", increment: 1500 });
   await languageClient.onReady();
 }
 

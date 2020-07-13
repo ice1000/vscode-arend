@@ -1,6 +1,5 @@
 'use strict'
 import * as vscode from 'vscode';
-import { withSpinningStatus } from './status-utils';
 import { activateArend } from './startup';
 import { fsExists } from './os-utils';
 
@@ -26,10 +25,15 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     return;
   }
 
-  const initTasks: Promise<void>[] = [];
+  const initTasks: PromiseLike<void>[] = [];
 
-  initTasks.push(withSpinningStatus(context, async status => {
-    activateArend(context, status, arendConfig);
+  initTasks.push(vscode.window.withProgress({
+    location: vscode.ProgressLocation.Notification,
+    cancellable: false,
+    title: "Loading Arend library",
+  }, async progress => {
+    await activateArend(context, progress, arendConfig);
+    return new Promise(resolve => setTimeout(resolve, 5000));
   }));
 
   await Promise.all(initTasks);
