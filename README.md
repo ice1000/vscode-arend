@@ -20,6 +20,12 @@ You need the [arend-language-server] to make this extension work.
 
  [arend-language-server]: https://github.com/ice1000/arend-language-server
 
+I'm sorry that you need to download it yourself,
+from [here](https://github.com/ice1000/arend-language-server/releases/download/v0.1.0/arend-lsp-0.1.0-full.jar),
+and put the path into `arend.languageServer.path`.
+
+This will be improved in the future versions.
+
 ## Help wanted
 
 This project needs your help!
