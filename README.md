@@ -14,6 +14,12 @@ enjoy the sweet startup speed of VSCode.
 So, I made this for fun.
 Syntax highlighting files are taken from [arend-tmbundle].
 
+## Setup
+
+You need the [arend-language-server] to make this extension work.
+
+ [arend-language-server]: https://github.com/ice1000/arend-language-server
+
 ## Help wanted
 
 This project needs your help!
