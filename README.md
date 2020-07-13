@@ -20,11 +20,18 @@ You need the [arend-language-server] to make this extension work.
 
  [arend-language-server]: https://github.com/ice1000/arend-language-server
 
-I'm sorry that you need to download it yourself,
+I'm sorry that currently you need to download it yourself,
 from [here](https://github.com/ice1000/arend-language-server/releases/download/v0.1.0/arend-lsp-0.1.0-full.jar),
-and put the path into `arend.languageServer.path`.
+and put the path to the jar into `arend.languageServer.path`.
 
 This will be improved in the future versions.
+
+Apart from that, you also need a java (version >= 11) installation,
+which the plugin will try to find in `PATH` and `JAVA_HOME` (higher priority).
+
+## Features
+
++ Goto definition
 
 ## Help wanted
 
