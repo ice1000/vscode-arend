@@ -2,7 +2,8 @@ import * as child_process from "child_process";
 import * as net from "net";
 import * as vscode from 'vscode';
 import { findJavaExecutable } from './find-java';
-import { LanguageClient, LanguageClientOptions, RevealOutputChannelOn, ServerOptions, StreamInfo } from "vscode-languageclient";
+import { LanguageClientOptions, RevealOutputChannelOn } from "vscode-languageclient";
+import { LanguageClient, ServerOptions, StreamInfo } from "vscode-languageclient/node";
 
 export async function activateArend(context: vscode.ExtensionContext, progress: vscode.Progress<{ message?: string; increment?: number }>, arendConfig: vscode.WorkspaceConfiguration) {
   progress.report({ message: "Activating Arend...", increment: 500 });
