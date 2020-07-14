@@ -14,6 +14,7 @@ export async function activateArend(context: vscode.ExtensionContext, progress: 
 
   const outputChannel = vscode.window.createOutputChannel("Arend");
   context.subscriptions.push(outputChannel);
+  outputChannel.appendLine(`Using java from ${java}.`);
 
   const transportLayer = arendConfig.get("languageServer.transport");
   let tcpPort: number = null;

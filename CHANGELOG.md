@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## 0.1.1
+
+- Fixed a major range problem in goto definition
+- Improved symbol searching performance by shrinking the search space drastically
+- Added initial support for module reloading (on save)
+
 ## 0.1.0
 
 - Added goto definition support (not for meta and prelude)
