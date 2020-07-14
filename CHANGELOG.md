@@ -6,7 +6,7 @@
 
 - Fixed a major range problem in goto definition
 - Improved symbol searching performance by shrinking the search space drastically
-- Added initial support for module reloading (on save)
+- Added initial support for module reloading (on save), it doesn't work though
 
 ## 0.1.0
 
