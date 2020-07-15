@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## 0.1.2
+
+- Fixed reloading for source modules, currently doesn't work with tests
+- Internal refactoring, hopefully make compilation faster
+- Logging improvements
+
 ## 0.1.1
 
 - Fixed a major range problem in goto definition
