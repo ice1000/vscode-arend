@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## 0.1.3
+
+- Upgrade Arend to latest dev
+- Fix position of definitions
+
 ## 0.1.2
 
 - Fixed reloading for source modules, currently doesn't work with tests
