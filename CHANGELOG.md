@@ -4,7 +4,7 @@
 
 - Upgraded Arend to latest dev
 - Upgraded client dependencies
-- Added badges to package description
+- Improved package description
 
 ## 0.1.3
 
