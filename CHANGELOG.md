@@ -2,10 +2,14 @@
 
 ## [Unreleased]
 
+- Upgraded Arend to latest dev
+- Upgraded client dependencies
+- Added badges to package description
+
 ## 0.1.3
 
-- Upgrade Arend to latest dev
-- Fix position of definitions
+- Upgraded Arend to latest dev
+- Fixed position of definitions
 
 ## 0.1.2
 
