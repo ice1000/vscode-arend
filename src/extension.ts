@@ -2,7 +2,6 @@
 import * as vscode from 'vscode';
 import { activateArend } from './startup';
 import { fsExists } from './os-utils';
-import { join } from 'path';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
   const arendConfig = vscode.workspace.getConfiguration("arend");

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## 0.2.0
+
 - Upgraded Arend to latest dev
 - Upgraded client dependencies
 - Improved package description
