@@ -5,7 +5,12 @@ import { findJavaExecutable } from './find-java';
 import { LanguageClientOptions, RevealOutputChannelOn } from "vscode-languageclient";
 import { LanguageClient, ServerOptions, StreamInfo } from "vscode-languageclient/node";
 
-export async function activateArend(context: vscode.ExtensionContext, progress: vscode.Progress<{ message?: string; increment?: number }>, arendConfig: vscode.WorkspaceConfiguration) {
+export async function activateArend(
+  context: vscode.ExtensionContext,
+  progress: vscode.Progress<{ message?: string; increment?: number }>,
+  arendConfig: vscode.WorkspaceConfiguration,
+  arendLspPath: string,
+) {
   progress.report({ message: "Activating Arend...", increment: 500 });
   const java = await findJavaExecutable("java");
   if (!java) {
@@ -16,6 +21,7 @@ export async function activateArend(context: vscode.ExtensionContext, progress: 
   const outputChannel = vscode.window.createOutputChannel("Arend");
   context.subscriptions.push(outputChannel);
   outputChannel.appendLine(`Using java from ${java}.`);
+  outputChannel.appendLine(`Selected Arend Language Server: ${arendLspPath}`);
 
   const transportLayer = arendConfig.get("languageServer.transport");
   let tcpPort: number = null;
@@ -40,8 +46,6 @@ export async function activateArend(context: vscode.ExtensionContext, progress: 
 
   progress.report({ message: `Initializing Arend language server ${initStatusSuffix}...`, increment: 1000 });
 
-  const arendLspPath = arendConfig.get<string>("languageServer.path");
-  outputChannel.appendLine(`Selected Arend Language Server: ${arendLspPath}`);
   const languageClient = createLanguageClient({
     outputChannel, java, arendLspPath, tcpPort
   });

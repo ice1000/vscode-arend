@@ -5,6 +5,7 @@
 - Upgraded Arend to latest dev
 - Upgraded client dependencies
 - Improved package description
+- Bundled the language server jar to the extension
 
 ## 0.1.3
 

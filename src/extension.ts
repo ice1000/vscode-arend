@@ -12,13 +12,11 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     return;
   }
 
-  const arendLspPath = arendConfig.get<string>("languageServer.path");
+  const arendLspPath = arendConfig.get<string>("languageServer.path")
+    ?? context.asAbsolutePath("lsp.jar");
   if (!arendLspPath) {
-    const v = "0.1.3";
-    const link = `https://github.com/ice1000/arend-language-server/releases/download/v${v}/arend-lsp-${v}-full.jar`;
-    const message =
-      `To enable smart editing features for Arend, you need to specify arend.languageServer.path in your settings.
-You can download it from: ${link}`;
+    const message = `Something's wrong with the current installation of Arend extension, I can't find lsp.jar at ${arendLspPath}.
+You may want to reinstall the extension.`;
     await vscode.window.showWarningMessage(message);
     return;
   }
@@ -35,7 +33,7 @@ You can download it from: ${link}`;
     cancellable: false,
     title: "Loading Arend library",
   }, async progress => {
-    await activateArend(context, progress, arendConfig);
+    await activateArend(context, progress, arendConfig, arendLspPath);
     return new Promise(resolve => setTimeout(resolve, 5000));
   }));
 

@@ -6,8 +6,10 @@
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/ice1000.arend)][url]
 
  [url]: https://marketplace.visualstudio.com/items?itemName=ice1000.arend
+ [arend-language-server]: https://github.com/ice1000/arend-language-server
 
-This is a non-official VSCode extension for the [Arend] proof assistant.
+This is a non-official VSCode extension for the [Arend] proof assistant,
+powered by [arend-language-server].
 As the only official editor is IntelliJ IDEA, it's difficult when we want to
 enjoy the sweet startup speed of VSCode.
 
@@ -16,19 +18,9 @@ Syntax highlighting files are taken from [arend-tmbundle].
 
 ## Setup
 
-You need the [arend-language-server] to make this extension work.
-
- [arend-language-server]: https://github.com/ice1000/arend-language-server
-
-I'm sorry that currently you need to download it yourself,
-from [here](https://github.com/ice1000/arend-language-server/releases/download/v0.1.3/arend-lsp-0.1.3-full.jar)
-(note that this link is constantly updated, please redownload for each updates),
-and put the path to the jar into `arend.languageServer.path`.
-
-This will be improved in the future versions.
-
-Apart from that, you also need a java (version >= 11) installation,
-which the plugin will try to find in `PATH` and `JAVA_HOME` (higher priority).
+You need a java (version >= 11) installation,
+which the plugin will try to find in `PATH`
+(lower priority) and `JAVA_HOME` (higher priority).
 
 ## Features
 
