@@ -2,6 +2,7 @@
 import * as vscode from 'vscode';
 import { activateArend } from './startup';
 import { fsExists } from './os-utils';
+import { join } from 'path';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
   const arendConfig = vscode.workspace.getConfiguration("arend");
@@ -12,13 +13,9 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     return;
   }
 
-  const arendLspPath = arendConfig.get<string>("languageServer.path")
-    ?? context.asAbsolutePath("lsp.jar");
-  if (!arendLspPath) {
-    const message = `Something's wrong with the current installation of Arend extension, I can't find lsp.jar at ${arendLspPath}.
-You may want to reinstall the extension.`;
-    await vscode.window.showWarningMessage(message);
-    return;
+  let arendLspPath = arendConfig.get<string>("languageServer.path");
+  if (!arendLspPath || !await fsExists(arendLspPath)) {
+    arendLspPath = context.asAbsolutePath("lsp.jar");
   }
   if (!await fsExists(arendLspPath)) {
     const message = `Specified path in ${arendLspPath} is invalid, smart editing features won't be available.`;
