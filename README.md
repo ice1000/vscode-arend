@@ -22,6 +22,10 @@ You need a java (version >= 11) installation,
 which the plugin will try to find in `PATH`
 (lower priority) and `JAVA_HOME` (higher priority).
 
+If something doesn't work, try removing the configuration
+`arend.languageServer.path` in your settings.
+By doing this, you're enabling the bundled language server.
+
 ## Features
 
 + Goto definition

@@ -21,7 +21,7 @@ You may want to reinstall the extension.`;
     return;
   }
   if (!await fsExists(arendLspPath)) {
-    const message = "Specified path in arend.languageServer.path is invalid, smart editing features won't be available.";
+    const message = `Specified path in ${arendLspPath} is invalid, smart editing features won't be available.`;
     await vscode.window.showWarningMessage(message);
     return;
   }
