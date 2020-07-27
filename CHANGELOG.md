@@ -2,8 +2,12 @@
 
 ## [Unreleased]
 
+## 0.2.1
+
 - Upgraded Arend to latest dev
 - Upgraded client dependencies
+- Improved onClick-range for goto-definition
+- Added display for local errors (like type errors)
 
 ## 0.2.0
 
