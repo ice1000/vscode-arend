@@ -29,6 +29,7 @@ By doing this, you're enabling the bundled language server.
 ## Features
 
 + Goto definition
++ Show type errors
 
 ## Help wanted
 
