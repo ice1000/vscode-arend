@@ -9,9 +9,9 @@ export async function findJavaExecutable(rawBinName: string): Promise<string> {
   // First search java.home setting
   const userJavaHome = vscode.workspace.getConfiguration('java').get('home') as string;
 
-  if (userJavaHome !== null) {
+  if (userJavaHome) {
     let candidate = await findJavaExecutableInJavaHome(userJavaHome, binName);
-    if (candidate !== null)
+    if (candidate)
       return candidate;
   }
 
@@ -20,13 +20,14 @@ export async function findJavaExecutable(rawBinName: string): Promise<string> {
 
   if (envJavaHome) {
     const candidate = await findJavaExecutableInJavaHome(envJavaHome, binName);
-    if (candidate !== null)
+    if (candidate)
       return candidate;
   }
 
+  const sysPath = process.env['PATH'];
   // Then search PATH parts
-  if (process.env['PATH']) {
-    const pathParts = process.env['PATH'].split(path.delimiter);
+  if (sysPath) {
+    const pathParts = sysPath.split(path.delimiter);
     for (const pathPart of pathParts) {
       const binPath = path.join(pathPart, binName);
       if (fs.existsSync(binPath)) {
