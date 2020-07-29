@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## 0.2.2
+
+- Upgraded Arend to latest dev
+- Upgraded client dependencies
+- Fixed range of definitions containing fixities
+
 ## 0.2.1
 
 - Upgraded Arend to latest dev
