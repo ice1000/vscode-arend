@@ -4,31 +4,31 @@ import * as vscode from 'vscode';
 import { correctBinName, fsExists } from './os-utils';
 
 export async function findJavaExecutable(rawBinName: string): Promise<string> {
-  let binName = correctBinName(rawBinName);
+  const binName = correctBinName(rawBinName);
 
   // First search java.home setting
-  let userJavaHome = vscode.workspace.getConfiguration('java').get('home') as string;
+  const userJavaHome = vscode.workspace.getConfiguration('java').get('home') as string;
 
-  if (userJavaHome != null) {
+  if (userJavaHome !== null) {
     let candidate = await findJavaExecutableInJavaHome(userJavaHome, binName);
-    if (candidate != null)
+    if (candidate !== null)
       return candidate;
   }
 
   // Then search each JAVA_HOME
-  let envJavaHome = process.env['JAVA_HOME'];
+  const envJavaHome = process.env['JAVA_HOME'];
 
   if (envJavaHome) {
-    let candidate = await findJavaExecutableInJavaHome(envJavaHome, binName);
-    if (candidate != null)
+    const candidate = await findJavaExecutableInJavaHome(envJavaHome, binName);
+    if (candidate !== null)
       return candidate;
   }
 
   // Then search PATH parts
   if (process.env['PATH']) {
-    let pathParts = process.env['PATH'].split(path.delimiter);
-    for (let i = 0; i < pathParts.length; i++) {
-      let binPath = path.join(pathParts[i], binName);
+    const pathParts = process.env['PATH'].split(path.delimiter);
+    for (const pathPart of pathParts) {
+      const binPath = path.join(pathPart, binName);
       if (fs.existsSync(binPath)) {
         return binPath;
       }
@@ -40,10 +40,10 @@ export async function findJavaExecutable(rawBinName: string): Promise<string> {
 }
 
 async function findJavaExecutableInJavaHome(javaHome: string, binName: string): Promise<string> {
-  let workspaces = javaHome.split(path.delimiter);
+  const workspaces = javaHome.split(path.delimiter);
 
-  for (let i = 0; i < workspaces.length; i++) {
-    let binPath = path.join(workspaces[i], 'bin', binName);
+  for (const workspace of workspaces) {
+    const binPath = path.join(workspace, 'bin', binName);
 
     if (await fsExists(binPath))
       return binPath;
