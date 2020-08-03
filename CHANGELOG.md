@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## 0.2.3
+
 - Upgraded Arend to latest dev
 
 ## 0.2.2
