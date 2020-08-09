@@ -2,10 +2,13 @@
 
 ## [Unreleased]
 
+- Upgraded Arend to latest dev
+  (implemented experimental support for definable metas)
+- Upgraded client dependencies
+
 ## 0.2.4
 
 - Upgraded client dependencies
-- Upgraded Arend to latest dev
 
 ## 0.2.3
 
