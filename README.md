@@ -19,8 +19,11 @@ Syntax highlighting files are taken from [arend-tmbundle].
 ## Setup
 
 You need a java (version >= 11) installation,
-which the plugin will try to find in `PATH`
-(lower priority) and `JAVA_HOME` (higher priority).
+which the plugin will try to find in by (in order):
+
++ VSCode configuration `java.home`
++ Environment variable `JAVA_HOME`
++ Environment variable `PATH`
 
 If something doesn't work, try removing the configuration
 `arend.languageServer.path` in your settings.
