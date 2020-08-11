@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## 0.2.6
+
+- Supported termination error report
+- Show ranges of fully-qualified name properly
+- Upgraded Arend to latest dev (better definable metas)
+- Upgraded client dependencies
+
 ## 0.2.5
 
 - Upgraded Arend to latest dev
