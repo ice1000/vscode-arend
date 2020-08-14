@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Upgraded client dependencies
+
 ## 0.2.6
 
 - Supported termination error report
