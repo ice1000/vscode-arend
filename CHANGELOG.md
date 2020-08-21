@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## 0.2.7
+
 - Upgraded client dependencies
 - Upgraded Arend to latest dev (implemented definable metas)
 
