@@ -14,7 +14,10 @@ As the only official editor is IntelliJ IDEA, it's difficult when we want to
 enjoy the sweet startup speed of VSCode.
 
 So, I made this for fun.
-Syntax highlighting files are taken from [arend-tmbundle].
+Syntax highlighting files are taken from [arend-tmbundle],
+and the Arend compiler bundled in this plugin uses the latest dev version
+of Arend. If you want the stable version, you may wanna build it and specify
+the VSCode setting `arend.languageServer.path` to your own jar.
 
 ## Setup
 

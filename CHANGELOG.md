@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Upgraded client dependencies
+- Upgraded Arend to latest dev (bug fixes)
+
 ## 0.2.7
 
 - Upgraded client dependencies
