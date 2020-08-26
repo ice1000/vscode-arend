@@ -13,8 +13,15 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   }
 
   let arendLspPath = arendConfig.get<string>("languageServer.path");
-  if (!arendLspPath || !await fsExists(arendLspPath)) {
-    arendLspPath = context.asAbsolutePath("lsp.jar");
+  if (!arendLspPath) {
+    if (!await fsExists(arendLspPath)) {
+      const message = `Specified path ${arendLspPath} is invalid, using default language server.`;
+      arendLspPath = context.asAbsolutePath("lsp.jar");
+      vscode.window.showInformationMessage(message);
+    } else {
+      const message = `Using custom arend language server ${arendLspPath}.`;
+      vscode.window.showInformationMessage(message);
+    }
   }
   if (!await fsExists(arendLspPath)) {
     const message = `Specified path in ${arendLspPath} is invalid, smart editing features won't be available.`;

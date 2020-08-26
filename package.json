@@ -2,7 +2,7 @@
     "name": "arend",
     "displayName": "Arend",
     "description": "Arend language support for VSCode",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "engines": {
         "vscode": "^1.48.0"
     },
@@ -84,7 +84,7 @@
                 },
                 "arend.languageServer.path": {
                     "type": "string",
-                    "description": "[Recommended] Specifies the local path of the arend language server jar, required for smart editing features."
+                    "description": "Specifies the local path of the arend language server jar, required for smart editing features."
                 }
             }
         },

@@ -4,6 +4,7 @@
 
 - Upgraded client dependencies
 - Upgraded Arend to latest dev (bug fixes)
+- Upgraded Kotlin to 1.4
 
 ## 0.2.7
 
