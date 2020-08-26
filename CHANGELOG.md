@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
+## 0.2.8
+
 - Upgraded client dependencies
 - Upgraded Arend to latest dev (bug fixes)
 - Upgraded Kotlin to 1.4
+- Report ParserErrors
+- Report unhandled error's javaClass
 
 ## 0.2.7
 
