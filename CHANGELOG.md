@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## 0.2.9
+
 - Upgraded client dependencies
 - Upgraded Arend to latest dev (API changed)
 - Report LibraryIOError
