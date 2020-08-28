@@ -3,6 +3,10 @@
 ## [Unreleased]
 
 - Upgraded client dependencies
+- Upgraded Arend to latest dev (API changed)
+- Report LibraryIOError
+- Auto-close and surround with \" in Arend strings
+- Handle references in \import commands
 
 ## 0.2.8
 
