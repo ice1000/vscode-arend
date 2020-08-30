@@ -8,9 +8,10 @@ import { LanguageClient, ServerOptions, StreamInfo } from "vscode-languageclient
 export async function activateArend(
   context: vscode.ExtensionContext,
   progress: vscode.Progress<{ message?: string; increment?: number }>,
-  arendConfig: vscode.WorkspaceConfiguration,
   arendLspPath: string,
 ) {
+  const arendConfig = vscode.workspace.getConfiguration("arend");
+
   progress.report({ message: "Activating Arend...", increment: 500 });
   const java = await findJavaExecutable("java");
   if (!java) {
