@@ -36,7 +36,6 @@ export async function findJavaExecutable(rawBinName: string): Promise<string> {
     }
   }
 
-  // TODO: warn
   return binName;
 }
 

@@ -1,7 +1,6 @@
 import * as child_process from "child_process";
 import * as net from "net";
 import * as vscode from 'vscode';
-import { findJavaExecutable } from './find-java';
 import { LanguageClientOptions, RevealOutputChannelOn } from "vscode-languageclient";
 import { LanguageClient, ServerOptions, StreamInfo } from "vscode-languageclient/node";
 
@@ -9,15 +8,11 @@ export async function activateArend(
   context: vscode.ExtensionContext,
   progress: vscode.Progress<{ message?: string; increment?: number }>,
   arendLspPath: string,
+  java: string,
 ) {
   const arendConfig = vscode.workspace.getConfiguration("arend");
 
   progress.report({ message: "Activating Arend...", increment: 500 });
-  const java = await findJavaExecutable("java");
-  if (!java) {
-    await vscode.window.showErrorMessage("Couldn't locate java in $JAVA_HOME or $PATH, please install java.");
-    return;
-  }
 
   const outputChannel = vscode.window.createOutputChannel("Arend");
   context.subscriptions.push(outputChannel);
@@ -46,24 +41,12 @@ export async function activateArend(
   }
 
   progress.report({ message: `Initializing Arend language server ${initStatusSuffix}...`, increment: 1000 });
-  const cwd = vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath;
 
   const languageClient = createLanguageClient({
-    outputChannel, java, arendLspPath, tcpPort, cwd
+    outputChannel, java, arendLspPath, tcpPort
   });
   let languageClientDisposable = languageClient.start();
   context.subscriptions.push(languageClientDisposable);
-
-  context.subscriptions.push(vscode.commands.registerCommand("arend.repl.start", async () => {
-    const term = vscode.window.createTerminal({
-      name: "Arend REPL",
-      cwd: cwd,
-      hideFromUser: false,
-      shellPath: java,
-      shellArgs: ["-jar", arendLspPath, "-i"],
-    });
-    term.show(true);
-  }));
 
   context.subscriptions.push(vscode.commands.registerCommand("arend.languageServer.restart", async () => {
     await languageClient.stop();
@@ -86,7 +69,6 @@ function createLanguageClient(options: {
   java: string,
   arendLspPath: string,
   tcpPort?: number,
-  cwd: string,
 }): LanguageClient {
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
@@ -118,7 +100,7 @@ function createLanguageClient(options: {
       command: options.java,
       args: ["-jar", options.arendLspPath],
       options: {
-        cwd: options.cwd,
+        cwd: vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath,
       }
     }
   }
