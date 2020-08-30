@@ -93,19 +93,24 @@
                 "command": "arend.languageServer.restart",
                 "category": "Arend",
                 "title": "Restart Arend"
+            },
+            {
+                "command": "arend.repl.start",
+                "category": "Arend",
+                "title": "Start Arend REPL"
             }
         ]
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^15.0.0",
         "@rollup/plugin-node-resolve": "^9.0.0",
-        "@types/node": "^14.6.1",
+        "@types/node": "^14.6.2",
         "@types/node-fetch": "^2.5.7",
         "@types/vscode": "^1.48.0",
         "@typescript-eslint/eslint-plugin": "^3.10.1",
         "@typescript-eslint/parser": "^3.10.1",
         "eslint": "^7.7.0",
-        "rollup": "^2.26.6",
+        "rollup": "^2.26.8",
         "tslib": "^2.0.1",
         "typescript": "^4.0.2",
         "typescript-formatter": "^7.2.2",

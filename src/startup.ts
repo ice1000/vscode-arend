@@ -46,12 +46,24 @@ export async function activateArend(
   }
 
   progress.report({ message: `Initializing Arend language server ${initStatusSuffix}...`, increment: 1000 });
+  const cwd = vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath;
 
   const languageClient = createLanguageClient({
-    outputChannel, java, arendLspPath, tcpPort
+    outputChannel, java, arendLspPath, tcpPort, cwd
   });
   let languageClientDisposable = languageClient.start();
   context.subscriptions.push(languageClientDisposable);
+
+  context.subscriptions.push(vscode.commands.registerCommand("arend.repl.start", async () => {
+    const term = vscode.window.createTerminal({
+      name: "Arend REPL",
+      cwd: cwd,
+      hideFromUser: false,
+      shellPath: java,
+      shellArgs: ["-jar", arendLspPath, "-i"],
+    });
+    term.show(true);
+  }));
 
   context.subscriptions.push(vscode.commands.registerCommand("arend.languageServer.restart", async () => {
     await languageClient.stop();
@@ -73,7 +85,8 @@ function createLanguageClient(options: {
   outputChannel: vscode.OutputChannel,
   java: string,
   arendLspPath: string,
-  tcpPort?: number
+  tcpPort?: number,
+  cwd: string,
 }): LanguageClient {
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
@@ -105,7 +118,7 @@ function createLanguageClient(options: {
       command: options.java,
       args: ["-jar", options.arendLspPath],
       options: {
-        cwd: vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath,
+        cwd: options.cwd,
       }
     }
   }
@@ -129,7 +142,7 @@ export function spawnLanguageServerProcessAndConnectViaTcp(options: {
       const tcpPort = (server.address() as net.AddressInfo).port.toString();
       const proc = child_process.spawn(options.java, ["-jar", options.arendLspPath, "--client-port", tcpPort]);
 
-      const outputCallback = data => options.outputChannel.append(`${data}`);
+      const outputCallback = (data: any) => options.outputChannel.append(`${data}`);
       proc.stdout.on("data", outputCallback);
       proc.stderr.on("data", outputCallback);
       proc.on("exit", (code, sig) => options.outputChannel.appendLine(`The language server exited with ${code} (${sig})`));
