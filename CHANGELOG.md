@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## 0.3.0
+
 - Upgraded client dependencies
 - Upgraded Arend to latest dev (API changed)
 - Added command `arend.repl.start`, so you start the Arend repl
