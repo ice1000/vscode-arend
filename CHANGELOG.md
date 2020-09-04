@@ -2,12 +2,15 @@
 
 ## [Unreleased]
 
+## 0.3.1
+
 - Fixed another problem on hovering range
 - Fixed an NPE reported by user
 - Properly handled `NotInScopeError`
 - Properly handled `Concrete.ReferenceExpression` as error cause
 - Improved inline error length (previously all 1-sized) for many
   error types like `LocalError` and `NotInScopeError`
+- Upgraded client dependencies
 
 ## 0.3.0
 
