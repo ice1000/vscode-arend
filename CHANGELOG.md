@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Upgraded client dependencies
+- Upgraded Arend to latest dev (API changed, fixed many many problems)
+
 ## 0.3.1
 
 - Fixed another problem on hovering range
