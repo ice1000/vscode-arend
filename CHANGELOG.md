@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Upgraded client dependencies
+- Upgraded Arend to 1.5 release
+
 ## 0.3.2
 
 Note: this will be the last update to support VSCode 1.49.0.
