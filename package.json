@@ -2,9 +2,9 @@
     "name": "arend",
     "displayName": "Arend",
     "description": "Arend language support for VSCode",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "engines": {
-        "vscode": "^1.49.0"
+        "vscode": "^1.50.0"
     },
     "preview": true,
     "categories": [

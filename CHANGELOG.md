@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## 0.3.3
+
 - Upgraded client dependencies
 - Upgraded Arend to 1.5 release
 
