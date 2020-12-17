@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
+## 0.3.4
+
 - Upgraded client dependencies
+- Upgraded Arend
+- Added the Arend icon
 
 ## 0.3.3
 
