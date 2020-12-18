@@ -7,6 +7,7 @@ package-lock.json
 *.vsix
 out/*
 lsp.jar
+icon.png
 
 # Logs
 logs

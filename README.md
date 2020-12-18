@@ -40,12 +40,11 @@ By doing this, you're enabling the bundled language server.
 ## Help wanted
 
 This project needs your help!
-It needs *an icon*! If you have some idea please don't hesitate to file an issue.
-
-Also, if you've found some features missing in the extension,
-feel free to file an issue too.
+If you've found some features missing in the extension, feel free to file an issue too.
 If you'd like to create a pull request that implements what you wanted,
 that's even better!
 
  [Arend]: https://arend-lang.github.io
  [arend-tmbundle]: https://github.com/arend-lang/arend-tmbundle
+
+![](icon.png)
