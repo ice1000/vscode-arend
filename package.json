@@ -4,7 +4,7 @@
     "description": "Arend language support for VSCode",
     "version": "0.3.5",
     "engines": {
-        "vscode": "^1.51.0"
+        "vscode": "^1.55.0"
     },
     "icon": "icon.png",
     "preview": true,

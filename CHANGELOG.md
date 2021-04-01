@@ -6,6 +6,7 @@
 
 - Upgraded client dependencies
 - Upgraded Arend
+- Migrate to VSCode 1.55
 
 ## 0.3.4
 
