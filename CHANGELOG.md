@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Upgraded client dependencies
+
 ## 0.3.5
 
 - Upgraded client dependencies
