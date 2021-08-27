@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
+## 0.3.6
+
 - Upgraded client dependencies
+- Upgraded Arend
+- Migrate to VSCode 1.59
 
 ## 0.3.5
 
