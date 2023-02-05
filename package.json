@@ -2,7 +2,7 @@
     "name": "arend",
     "displayName": "Arend",
     "description": "Arend language support for VSCode",
-    "version": "0.3.6",
+    "version": "0.3.7",
     "engines": {
         "vscode": "^1.75.0"
     },
@@ -22,7 +22,7 @@
         "email": "ice1000kotlin@foxmail.com"
     },
     "author": {
-        "name": "Tesla Ice Zhang",
+        "name": "Tesla Zhang",
         "email": "ice1000kotlin@foxmail.com",
         "url": "https://ice1000.org"
     },
@@ -110,12 +110,12 @@
         "@types/vscode": "^1.75.0",
         "@typescript-eslint/eslint-plugin": "^5.50.0",
         "@typescript-eslint/parser": "^5.50.0",
+	"@vscode/vsce": "^2.17.0",
         "eslint": "^8.33.0",
         "rollup": "^3.14.0",
         "tslib": "^2.5.0",
         "typescript": "^4.9.5",
-        "typescript-formatter": "^7.2.2",
-        "vsce": "^1.96.1"
+        "typescript-formatter": "^7.2.2"
     },
     "dependencies": {
         "node-fetch": "^3.3.0",
