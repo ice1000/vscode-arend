@@ -4,7 +4,7 @@
     "description": "Arend language support for VSCode",
     "version": "0.3.6",
     "engines": {
-        "vscode": "^1.59.0"
+        "vscode": "^1.75.0"
     },
     "icon": "icon.png",
     "preview": true,
@@ -103,22 +103,22 @@
         ]
     },
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^20.0.0",
-        "@rollup/plugin-node-resolve": "^13.0.4",
-        "@types/node": "^16.7.2",
-        "@types/node-fetch": "^2.5.12",
-        "@types/vscode": "^1.59.0",
-        "@typescript-eslint/eslint-plugin": "^4.29.3",
-        "@typescript-eslint/parser": "^4.29.3",
-        "eslint": "^7.32.0",
-        "rollup": "^2.56.3",
-        "tslib": "^2.3.1",
-        "typescript": "^4.4.2",
+        "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "@types/node": "^18.11.19",
+        "@types/node-fetch": "^2.6.2",
+        "@types/vscode": "^1.75.0",
+        "@typescript-eslint/eslint-plugin": "^5.50.0",
+        "@typescript-eslint/parser": "^5.50.0",
+        "eslint": "^8.33.0",
+        "rollup": "^3.14.0",
+        "tslib": "^2.5.0",
+        "typescript": "^4.9.5",
         "typescript-formatter": "^7.2.2",
         "vsce": "^1.96.1"
     },
     "dependencies": {
-        "node-fetch": "^2.6.1",
-        "vscode-languageclient": "7.0.0"
+        "node-fetch": "^3.3.0",
+        "vscode-languageclient": "8.0.2"
     }
 }
