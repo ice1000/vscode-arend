@@ -46,22 +46,18 @@ export async function activateArend(
     outputChannel, java, arendLspPath, tcpPort
   });
   let languageClientDisposable = languageClient.start();
-  context.subscriptions.push(languageClientDisposable);
 
   context.subscriptions.push(vscode.commands.registerCommand("arend.languageServer.restart", async () => {
     await languageClient.stop();
-    languageClientDisposable.dispose();
 
     outputChannel.appendLine("");
     outputChannel.appendLine(" === Language Server Restart ===")
     outputChannel.appendLine("");
 
     languageClientDisposable = languageClient.start();
-    context.subscriptions.push(languageClientDisposable);
   }));
 
   progress.report({ message: "Waiting for typechecking...", increment: 1500 });
-  await languageClient.onReady();
 }
 
 function createLanguageClient(options: {
