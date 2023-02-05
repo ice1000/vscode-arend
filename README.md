@@ -21,7 +21,7 @@ the VSCode setting `arend.languageServer.path` to your own jar.
 
 ## Setup
 
-You need a java (version >= 11) installation,
+You need a java (version >= 17) installation,
 which the plugin will try to find in by (in order):
 
 + VSCode configuration `java.home`
